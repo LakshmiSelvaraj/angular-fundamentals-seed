@@ -1,29 +1,3 @@
 <div class="app">
-    <h3>Airline Passengers - ngClass</h3>
-    <ul>
-        <!--*ngFor is angular's sugar syntax to circumvent having to use the <template></template> tags with [ngFor]-->
-      <li *ngFor="let passenger of passengers; let i=index;">
-        <span class="status" 
-            [ngClass] = "{'checked-in': passenger.checkedIn}"
-        ></span>
-        {{i}} : {{passenger.name}}
-        <div>
-            Check in date : {{passenger.checkedInDate | date: 'yMMMMd' | uppercase}}
-        </div>
-        <div>
-            Number of children : {{passenger.children?.length || 0}}
-        </div>
-      </li>
-    </ul>
-
-    <h3>Airline Passengers - ngStyle</h3>
-    <ul>
-      <li *ngFor="let passenger of passengers; let i=index;">
-        <span class="status" 
-            [ngStyle] = "{backgroundColor: passenger.checkedIn ? '#2ecc71':'#c0392b'}"
-        ></span>
-        {{i}} : {{passenger.name}}
-      </li>
-    </ul>
-
-  </div>
+    <passenger-dashboard></passenger-dashboard>
+</div>
