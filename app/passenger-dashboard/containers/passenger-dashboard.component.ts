@@ -32,4 +32,18 @@ export class PassengerDashboardComponent {
         }
       ]
     }
+
+    handleEdit(editedPassenger: Passenger): void {
+      console.log("Passenger edited in parent component");
+      this.passengers = this.passengers.map(passenger => {
+        if(passenger.id === editedPassenger.id) {
+          passenger = Object.assign({}, passenger, editedPassenger);
+        }
+        return passenger;
+      });
+    }
+
+    handleRemove(removedPassenger: Passenger): void {
+      this.passengers = this.passengers.filter(passenger => passenger.id != removedPassenger.id);
+    }
 }

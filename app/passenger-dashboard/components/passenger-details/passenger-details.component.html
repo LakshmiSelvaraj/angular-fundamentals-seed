@@ -1,10 +1,19 @@
-<span class="status" 
+<div>
+    <span class="status" 
     [ngClass] = "{'checked-in': details.checkedIn}"
-></span>
-{{details.name}}
-<div>
-    Check in date : {{details.checkedInDate | date: 'yMMMMd' | uppercase}}
-</div>
-<div>
-    Number of children : {{details.children?.length || 0}}
+    ></span>
+    <input 
+    *ngIf="editing" 
+    [value]="details.name" 
+    (input)="onNameChange(name.value)"
+    #name>
+    <span *ngIf="!editing">{{details.name}}</span>
+    <div>
+        Check in date : {{details.checkedInDate | date: 'yMMMMd' | uppercase}}
+    </div>
+    <div>
+        Number of children : {{details.children?.length || 0}}
+    </div>
+    <button (click)=toggleEdit()>{{editing ? 'Done' : 'Edit'}}</button>
+    <button (click)=remove()>Remove</button>
 </div>

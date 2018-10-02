@@ -4,7 +4,9 @@
 <h3>Airline Passengers</h3>
         <!--*ngFor is angular's sugar syntax to circumvent having to use the <template></template> tags with [ngFor]-->
       <passenger-details *ngFor="let passenger of passengers"
-        [details]="passenger">
+        [details]="passenger"
+        (editPassenger)="handleEdit($event)"
+        (removePassenger)="handleRemove($event)">
       </passenger-details>
 
     <!-- <h3>Airline Passengers - ngStyle</h3>
