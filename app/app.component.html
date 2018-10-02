@@ -10,6 +10,9 @@
         <div>
             Check in date : {{passenger.checkedInDate | date: 'yMMMMd' | uppercase}}
         </div>
+        <div>
+            Number of children : {{passenger.children?.length || 0}}
+        </div>
       </li>
     </ul>
 
