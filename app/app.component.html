@@ -1,11 +1,15 @@
 <div class="app">
     <h3>Airline Passengers - ngClass</h3>
     <ul>
+        <!--*ngFor is angular's sugar syntax to circumvent having to use the <template></template> tags with [ngFor]-->
       <li *ngFor="let passenger of passengers; let i=index;">
         <span class="status" 
             [ngClass] = "{'checked-in': passenger.checkedIn}"
         ></span>
         {{i}} : {{passenger.name}}
+        <div>
+            Check in date : {{passenger.checkedInDate | date: 'yMMMMd' | uppercase}}
+        </div>
       </li>
     </ul>
 
